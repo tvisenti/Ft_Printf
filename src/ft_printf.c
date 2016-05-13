@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 14:18:27 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 18:00:52 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:21:08 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**		Final free :'(
+*/
 
 void			ft_end(t_flag *f)
 {
@@ -25,6 +29,11 @@ void			ft_end(t_flag *f)
 			free(f->arg);
 	}
 }
+
+/*
+**		Debut de ft_printf, mets dans g_buf tant que != %
+**		sinon appelle dispatcher et affiche à la fin de la fonction
+*/
 
 int				ft_printf(const char *format, ...)
 {

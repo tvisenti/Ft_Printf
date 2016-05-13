@@ -6,15 +6,16 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 12:24:50 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:40:59 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 18:26:20 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
 /*
-** This function reads each flags and call functions in order to save them.
-** First, initialize our int array.
+** Initialise le tableau des flags, check les flags corrects, ajoute
+** la precision et la width si il y en a et mets le f->fla[n] a 1 pour
+** le flag correspondant.
 */
 
 int			ft_check(t_flag *f)
@@ -37,11 +38,6 @@ int			ft_check(t_flag *f)
 	return (0);
 }
 
-/*
-** This function compare the current char with flags and put an int through the
-** mask.
-*/
-
 void		ft_check_flag(t_flag *f)
 {
 	if (f->frmt[f->ndx] == '#' || f->frmt[f->ndx] == '0'
@@ -61,10 +57,6 @@ void		ft_check_flag(t_flag *f)
 		f->ndx++;
 	}
 }
-
-/*
-** This function check the witdh if we find a digit.
-*/
 
 void		ft_check_width(t_flag *f)
 {
@@ -88,15 +80,6 @@ void		ft_check_width(t_flag *f)
 	}
 }
 
-/*
-** This function check the precision if we find a dot.
-*/
-
-/*
-** CHECKER LE DERNIER POINT ET PRENDRE LA VALEUR DU DERNIER POINT !
-** printf("%50.1.4s", "jungle");
-*/
-
 void		ft_check_precision(t_flag *f)
 {
 	int		i;
@@ -118,10 +101,6 @@ void		ft_check_precision(t_flag *f)
 			f->fla[0] = -1;
 	}
 }
-
-/*
-** This function compare and analyse the modifiers.
-*/
 
 void		ft_check_modifier(t_flag *f)
 {

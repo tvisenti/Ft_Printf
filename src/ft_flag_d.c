@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 18:20:57 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:52:09 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:27:59 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**		'd' / 'D' / 'i' : recupere et cast l'arg
+*/
 
 char	*ft_modifier_d(t_flag *f, va_list *ap)
 {
@@ -38,6 +42,10 @@ char	*ft_modifier_d(t_flag *f, va_list *ap)
 	return (ft_itoa_base(data_max, 10));
 }
 
+/*
+**			'd' / 'i' : Applique le mask, traitement en numb
+*/
+
 int		ft_handler_d(t_flag *f, va_list *ap)
 {
 	static int	mask_d[13] = {0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
@@ -47,6 +55,10 @@ int		ft_handler_d(t_flag *f, va_list *ap)
 	ft_handler_numb(f);
 	return (0);
 }
+
+/*
+**			'D' : Applique le mask, traitement en numb
+*/
 
 int		ft_handler_wd(t_flag *f, va_list *ap)
 {

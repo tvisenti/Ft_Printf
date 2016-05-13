@@ -6,15 +6,14 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 10:53:39 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:41:00 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 18:45:14 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
 /*
-** This file initiates our array of structs in order to detect specifiers and
-** point directly to the right function.
+**			Pointe le bon handler en fonction du spec
 */
 
 static void		ft_initialize_specs_suite(t_spec *specs)
@@ -57,7 +56,7 @@ void			ft_initialize_specs(t_spec *specs)
 }
 
 /*
-** Initialize our int array fla[13] with zeros.
+**			Initialise le tableau
 */
 
 void			ft_check_initialize(t_flag *f)
@@ -74,8 +73,7 @@ void			ft_check_initialize(t_flag *f)
 }
 
 /*
-** This function set the basic in order to manage our differents specifiers and
-** associate flags. It calls the right function.
+** 		Check les flags, retourne le bon handler en fonction du spec
 */
 
 int				ft_dispatcher(t_flag *f, va_list *ap)

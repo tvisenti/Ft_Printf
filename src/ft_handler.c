@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 18:49:48 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 18:00:16 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:33:29 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**		Multiplie le masque du handler avec le mask de la structure
+*/
 
 void		ft_apply_mask(t_flag *f, int *mask)
 {
@@ -23,6 +27,10 @@ void		ft_apply_mask(t_flag *f, int *mask)
 		i++;
 	}
 }
+
+/*
+**		Gere les char : precision, wchar, width, affichage
+*/
 
 int			ft_handler_char(t_flag *f)
 {
@@ -37,6 +45,10 @@ int			ft_handler_char(t_flag *f)
 		ft_display_arg(f);
 	return (1);
 }
+
+/*
+**		Gere les numb : precision, wchar, width, affichage
+*/
 
 int			ft_handler_numb(t_flag *f)
 {

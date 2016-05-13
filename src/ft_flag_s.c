@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 18:20:57 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:28:29 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:29:56 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**		's' 'ls' : Applique le mask, recup l'arg et traite en char
+*/
 
 int			ft_handler_s(t_flag *f, va_list *ap)
 {
@@ -30,6 +34,10 @@ int			ft_handler_s(t_flag *f, va_list *ap)
 	ft_handler_char(f);
 	return (0);
 }
+
+/*
+**		'S' : Applique le mask, recup l'arg et traite en char
+*/
 
 int			ft_handler_ws(t_flag *f, va_list *ap)
 {

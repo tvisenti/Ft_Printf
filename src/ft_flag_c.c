@@ -6,11 +6,17 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 15:34:28 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:59:34 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:28:27 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**					'C' / 'lc'
+**		Mets l'arg dans f->warg, retourne -1 dans quelques cas,
+**		traitement en char
+*/
 
 int		ft_modifier_wc(t_flag *f, va_list *ap)
 {
@@ -29,6 +35,10 @@ int		ft_modifier_wc(t_flag *f, va_list *ap)
 	ft_handler_char(f);
 	return (0);
 }
+
+/*
+**			'c' : Applique le mask, mets l'arg dans f->arg, traitement en char
+*/
 
 int		ft_handler_c(t_flag *f, va_list *ap)
 {
@@ -53,6 +63,10 @@ int		ft_handler_c(t_flag *f, va_list *ap)
 		ft_buf('\0', f);
 	return (0);
 }
+
+/*
+**			'C' / 'lc' : Applique le mask
+*/
 
 int		ft_handler_wc(t_flag *f, va_list *ap)
 {

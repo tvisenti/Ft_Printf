@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 12:42:01 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:28:24 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:36:39 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**			'p' : Applique le mask, traitement en numb
+*/
 
 int		ft_handler_p(t_flag *f, va_list *ap)
 {
@@ -28,6 +32,10 @@ int		ft_handler_p(t_flag *f, va_list *ap)
 		ft_handler_numb(f);
 	return (0);
 }
+
+/*
+**			'undefined' : Applique le mask, traite en char
+*/
 
 int		ft_handler_undefined(t_flag *f)
 {

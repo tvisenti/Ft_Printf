@@ -6,13 +6,13 @@
 #    By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/20 11:33:31 by tvisenti          #+#    #+#              #
-#    Updated: 2016/05/13 17:55:58 by tvisenti         ###   ########.fr        #
+#    Updated: 2016/05/13 19:36:24 by tvisenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re norme
 
-CC = clang
+CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -80,11 +80,11 @@ $(OBJLIB_PATH)/%.o: $(LIB_PATH)/%.c
 	@$(CC) -o $@ -c $<
 
 clean:
-	@rm -rf ./obj
+	@rm -rf $(OBJ)
 	@echo "\033[33;32m==== clean obj DONE ===="
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf ./obj $(NAME)
 	@echo "\033[33;32m===== fclean DONE ======"
 
 re: fclean all

@@ -6,15 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 15:23:29 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:40:43 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 18:36:00 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
 /*
-** Pas de free dans la precision WARNING
-** Sub string if 's' or 'S'.
+**				precision : S / ls / s
+**		Tronque la chaine et mets la chaine tronque dns f->arg
 */
 
 void	ft_precision_string(t_flag *f)
@@ -28,7 +28,8 @@ void	ft_precision_string(t_flag *f)
 }
 
 /*
-** Ajout 0 pour o et O, 0x pour x et p, 0X pour X
+**					# : o / O / x / X / p
+**		Ajout 0 pour o et O, 0x pour x et p, 0X pour X
 */
 
 void	ft_sharp(t_flag *f)
@@ -59,8 +60,9 @@ void	ft_sharp(t_flag *f)
 }
 
 /*
-** Ajoute un espace si flag ' ' OU un signe +/- si flag '+'
-** appelle la fonction ft_sharp
+**					space ou + : d / D / i && #
+** 		Ajoute un espace si flag ' ' OU un signe +/- si flag '+'
+** 		appelle la fonction ft_sharp
 */
 
 void	ft_space_plus_sharp(t_flag *f)

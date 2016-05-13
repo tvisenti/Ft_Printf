@@ -6,15 +6,14 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 15:41:52 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:28:13 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:09:45 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
 /*
-** Appelle la fonction space_plus_sharp, width == 0 et precision > 0
-** ajout des 0 pour completer la precision
+**		 Precision > strlen(arg) : mets des '0'
 */
 
 void	ft_precision_without_width(t_flag *f)
@@ -35,9 +34,7 @@ void	ft_precision_without_width(t_flag *f)
 }
 
 /*
-** Remove more space on width for '-' flag
-** Gere l'affichage si '-' apres avoir affiche les arguments + flags :
-** longueur des ' ' a afficher et affiche
+** 		Calcul et insere dans g_buf le bon nombre de '0' ou ' '
 */
 
 void	ft_precision_numb(t_flag *f, int len_zero)
@@ -65,7 +62,7 @@ void	ft_precision_numb(t_flag *f, int len_zero)
 }
 
 /*
-** Put 0 and space if width is bigger
+** 			Traite le flag '0' et mets l'arg dans le g_buf en fonction
 */
 
 void	ft_zero_numb(t_flag *f)
@@ -94,7 +91,7 @@ void	ft_zero_numb(t_flag *f)
 }
 
 /*
-** Put string on the right, add 0 and space if width is bigger
+** 			Traite le flag '-' et mets l'arg dans le g_buf
 */
 
 void	ft_minus_numb(t_flag *f)
@@ -116,7 +113,8 @@ void	ft_minus_numb(t_flag *f)
 }
 
 /*
-** Prends en compte la width
+** 		Dispatche en fonction de la width du moins et du 0, si aucun flag
+**		mets dans le g_buff
 */
 
 void	ft_width_numb(t_flag *f)

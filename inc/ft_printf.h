@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 14:27:23 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 16:01:20 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:40:02 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,6 @@ void			ft_width_numb(t_flag *f);
 ** ft_display_numb.c
 */
 
-int				ft_width_rest(t_flag *f);
 void			ft_display_arg(t_flag *f);
 void			ft_width_char(t_flag *f);
 void			ft_minus_char(t_flag *f);

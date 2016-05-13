@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 15:41:52 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:28:10 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:40:35 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+** 		Mets la chaine dans g_buf, affiche (null) si l'arg est null
+*/
 
 void		ft_display_arg(t_flag *f)
 {
@@ -40,20 +44,15 @@ void		ft_display_arg(t_flag *f)
 	ft_end(f);
 }
 
-int			ft_width_rest(t_flag *f)
-{
-	return (f->fla[1] - ft_strlen(f->arg));
-}
-
 /*
-** Put 0 and space if width is bigger
+** 				Width - strlen(arg) : Mets des ' ' ou '0' si > 0
 */
 
 void		ft_zero_char(t_flag *f)
 {
 	int		nb_space;
 
-	nb_space = ft_width_rest(f);
+	nb_space = f->fla[1] - ft_strlen(f->arg);
 	if ((f->spe == 'c' && f->arg[0] == 0) || (f->spe == 'C' && f->arg[0] == 0))
 		nb_space--;
 	while (nb_space-- > 0)
@@ -67,14 +66,14 @@ void		ft_zero_char(t_flag *f)
 }
 
 /*
-** Put string on the right, add 0 and space if width is bigger
+**			Flag '-' : Mets l'arg en premier puis mets les espaces
 */
 
 void		ft_minus_char(t_flag *f)
 {
 	int		nb_space;
 
-	nb_space = ft_width_rest(f);
+	nb_space = f->fla[1] - ft_strlen(f->arg);
 	if ((f->spe == 'c' && f->arg[0] == 0) || (f->spe == 'C' && f->arg[0] == 0))
 		nb_space--;
 	ft_display_arg(f);
@@ -83,7 +82,7 @@ void		ft_minus_char(t_flag *f)
 }
 
 /*
-** Prends en compte la width
+**			Check si la width > strlen(arg), dispatche si '-' ou pas
 */
 
 void		ft_width_char(t_flag *f)

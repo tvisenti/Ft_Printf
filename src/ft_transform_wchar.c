@@ -6,11 +6,28 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 10:44:49 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:29:27 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:17:44 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**					0xxxxxxx // 0x00
+**	Aucune action
+** 					110xxxxx 10xxxxxx // 0xC0 0x80
+** 	Je deplace de 6 sur la droite et j'ajoute 11000000
+** 	Je filtre par 111111 et j'ajoute 10000000
+** 					1110xxxx 10xxxxxx 10xxxxxx // 0xE0 0x80 0x80
+**	Je deplace de 12 sur la droite et j'ajoute 11100000
+**	Je deplace de 6, je filtre par 111111 et j'ajoute 10000000
+**	Je filtre par 111111 et j'ajoute 10000000
+** 					11110xxx 10xxxxxx 10xxxxxx 10xxxxxx // 0xF0 0x80 0x80 0x80
+**	Je deplace de 18 sur la droite et j'ajoute 11110000
+**	Je deplace de 12 sur la droite, je filtre par 111111 et j'ajoute 10000000
+**	Je deplace de 6 sur la droite, je filtre par 111111 et j'ajoute 10000000
+**	Je filtre par 111111 et j'ajoute 10000000
+*/
 
 int		ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
 {
@@ -39,6 +56,10 @@ int		ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
 	}
 	return (i);
 }
+
+/*
+**		Transforme les wchar en char
+*/
 
 char	*ft_transform_wchar_in_char(wchar_t *ws)
 {

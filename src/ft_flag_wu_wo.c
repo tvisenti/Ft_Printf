@@ -6,11 +6,15 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 12:45:04 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:28:47 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/13 19:31:18 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+/*
+**		'U' / 'O' : recupere et cast l'arg
+*/
 
 char		*ft_modifier_wu_wo(t_flag *f, va_list *ap)
 {
@@ -37,6 +41,10 @@ char		*ft_modifier_wu_wo(t_flag *f, va_list *ap)
 	return (NULL);
 }
 
+/*
+**		'U' : Applique le mask, et traite en numb
+*/
+
 int			ft_handler_wu(t_flag *f, va_list *ap)
 {
 	static int	mask_wu[13] = {0, 0, 2, 1, 1, 1, 1, 2, 2, 1, 2, 1, 1};
@@ -46,6 +54,10 @@ int			ft_handler_wu(t_flag *f, va_list *ap)
 	ft_handler_numb(f);
 	return (0);
 }
+
+/*
+**		'O' : Applique le mask, et traite en numb
+*/
 
 int			ft_handler_wo(t_flag *f, va_list *ap)
 {
