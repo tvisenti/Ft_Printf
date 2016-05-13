@@ -32,3 +32,5 @@
 *.dSYM/
 a.out
 .md
+.swp
+auteur
