@@ -6,13 +6,13 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 15:15:07 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 15:29:17 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/14 11:49:20 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+size_t		ft_strlen(const char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i] != '\0')

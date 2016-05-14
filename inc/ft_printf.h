@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 14:27:23 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 19:40:02 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/05/14 11:49:06 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int				ft_isdigit(int c);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_itoa_base(uintmax_t nbr, int base);
 uintmax_t		ft_sign(t_flag *f, intmax_t nbr);
-int				ft_strlen(char *str);
+size_t			ft_strlen(const char *str);
 long			ft_atoi(const char *str);
 char			*ft_strlwr(char *s1);
 
