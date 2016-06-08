@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 12:24:50 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 18:26:20 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:33:39 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,27 @@
 ** le flag correspondant.
 */
 
-int			ft_check(t_flag *f)
+int			pf_ft_check(t_flag *f)
 {
-	ft_check_initialize(f);
+	pf_ft_check_initialize(f);
 	while (f->frmt[f->ndx] == '#' || f->frmt[f->ndx] == '0'
 		|| f->frmt[f->ndx] == '-' || f->frmt[f->ndx] == '+'
 		|| f->frmt[f->ndx] == ' ' || f->frmt[f->ndx] == 'h'
 		|| f->frmt[f->ndx] == 'l' || f->frmt[f->ndx] == 'j'
 		|| f->frmt[f->ndx] == 'z' || f->frmt[f->ndx] == '.'
-		|| ft_isdigit(f->frmt[f->ndx]))
+		|| pf_ft_isdigit(f->frmt[f->ndx]))
 	{
-		ft_check_flag(f);
-		ft_check_width(f);
-		ft_check_precision(f);
-		ft_check_modifier(f);
+		pf_ft_check_flag(f);
+		pf_ft_check_width(f);
+		pf_ft_check_precision(f);
+		pf_ft_check_modifier(f);
 	}
-	if (f->ndx == ft_strlen(f->frmt))
+	if (f->ndx == pf_ft_strlen(f->frmt))
 		return (-1);
 	return (0);
 }
 
-void		ft_check_flag(t_flag *f)
+void		pf_ft_check_flag(t_flag *f)
 {
 	if (f->frmt[f->ndx] == '#' || f->frmt[f->ndx] == '0'
 		|| f->frmt[f->ndx] == '-' || f->frmt[f->ndx] == '+'
@@ -58,29 +58,29 @@ void		ft_check_flag(t_flag *f)
 	}
 }
 
-void		ft_check_width(t_flag *f)
+void		pf_ft_check_width(t_flag *f)
 {
 	int		i;
 	char	*str;
 
 	i = f->ndx;
-	if (ft_isdigit(f->frmt[f->ndx]) && f->frmt[f->ndx] != '0')
+	if (pf_ft_isdigit(f->frmt[f->ndx]) && f->frmt[f->ndx] != '0')
 	{
-		while (ft_isdigit(f->frmt[f->ndx]))
+		while (pf_ft_isdigit(f->frmt[f->ndx]))
 		{
 			f->ndx++;
 		}
 		if (f->ndx - i > 0)
 		{
 			f->fla[1] = 0;
-			str = ft_strsub(f->frmt, i, f->ndx - i);
-			f->fla[1] = ft_atoi((const char*)str);
+			str = pf_ft_strsub(f->frmt, i, f->ndx - i);
+			f->fla[1] = pf_ft_atoi((const char*)str);
 			free(str);
 		}
 	}
 }
 
-void		ft_check_precision(t_flag *f)
+void		pf_ft_check_precision(t_flag *f)
 {
 	int		i;
 	char	*str;
@@ -89,12 +89,12 @@ void		ft_check_precision(t_flag *f)
 	{
 		f->fla[0] = 0;
 		i = ++f->ndx;
-		while (ft_isdigit(f->frmt[f->ndx]))
+		while (pf_ft_isdigit(f->frmt[f->ndx]))
 			f->ndx++;
 		if (f->ndx - i > 0)
 		{
-			str = ft_strsub(f->frmt, i, f->ndx - i);
-			f->fla[0] = ft_atoi((const char*)str);
+			str = pf_ft_strsub(f->frmt, i, f->ndx - i);
+			f->fla[0] = pf_ft_atoi((const char*)str);
 			free(str);
 		}
 		if (f->fla[0] == 0)
@@ -102,7 +102,7 @@ void		ft_check_precision(t_flag *f)
 	}
 }
 
-void		ft_check_modifier(t_flag *f)
+void		pf_ft_check_modifier(t_flag *f)
 {
 	while (f->frmt[f->ndx] == 'h' || f->frmt[f->ndx] == 'l' ||
 		f->frmt[f->ndx] == 'j' || f->frmt[f->ndx] == 'z')

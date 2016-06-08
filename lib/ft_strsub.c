@@ -6,15 +6,13 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:16:23 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:39:30 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:34:33 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "../inc/ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*pf_ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*fresh;
 	char	*tmp;

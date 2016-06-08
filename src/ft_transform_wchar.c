@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 10:44:49 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 19:17:44 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:32:54 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
 **	Je filtre par 111111 et j'ajoute 10000000
 */
 
-int		ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
+int		pf_ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
 {
 	int		size;
 
-	size = ft_wcharlen(wchar);
+	size = pf_ft_wcharlen(wchar);
 	if (size == 1)
 		fresh[i++] = wchar;
 	else if (size == 2)
@@ -61,7 +61,7 @@ int		ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
 **		Transforme les wchar en char
 */
 
-char	*ft_transform_wchar_in_char(wchar_t *ws)
+char	*pf_ft_transform_wchar_in_char(wchar_t *ws)
 {
 	char	*fresh;
 	int		i;
@@ -72,12 +72,12 @@ char	*ft_transform_wchar_in_char(wchar_t *ws)
 		return (0);
 	i = 0;
 	k = 0;
-	len = ft_wbytelen(ws);
+	len = pf_ft_wbytelen(ws);
 	fresh = (char*)malloc(sizeof(char) * len);
 	fresh[len] = '\0';
 	while (ws[k])
 	{
-		i = ft_putwchar_in_char(ws[k], fresh, i);
+		i = pf_ft_putwchar_in_char(ws[k], fresh, i);
 		k++;
 	}
 	return (fresh);

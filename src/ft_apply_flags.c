@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 15:23:29 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 18:36:00 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:33:43 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 **		Tronque la chaine et mets la chaine tronque dns f->arg
 */
 
-void	ft_precision_string(t_flag *f)
+void	pf_ft_precision_string(t_flag *f)
 {
 	if (f->fla[0] == -1)
 		f->arg = "\0";
 	else if (f->spe == 'S' || (f->spe == 's' && f->fla[10] == 1))
-		f->arg = ft_wstrsub(f->warg, 0, f->fla[0]);
+		f->arg = pf_ft_wstrsub(f->warg, 0, f->fla[0]);
 	else if (f->spe == 's')
-		f->arg = ft_strsub(f->arg, 0, f->fla[0]);
+		f->arg = pf_ft_strsub(f->arg, 0, f->fla[0]);
 }
 
 /*
@@ -32,7 +32,7 @@ void	ft_precision_string(t_flag *f)
 **		Ajout 0 pour o et O, 0x pour x et p, 0X pour X
 */
 
-void	ft_sharp(t_flag *f)
+void	pf_ft_sharp(t_flag *f)
 {
 	if ((f->fla[2] == 1 && f->arg[0] != '0' && f->fla[0] != -1)
 		|| f->spe == 'p')
@@ -42,19 +42,19 @@ void	ft_sharp(t_flag *f)
 		{
 			if ((f->spe == 'x' && f->arg[0] != '0') || f->spe == 'p')
 			{
-				ft_buf('0', f);
-				ft_buf('x', f);
+				pf_ft_buf('0', f);
+				pf_ft_buf('x', f);
 			}
 			else if (f->spe == 'X' && f->arg[0] != '0')
 			{
-				ft_buf('0', f);
-				ft_buf('X', f);
+				pf_ft_buf('0', f);
+				pf_ft_buf('X', f);
 			}
 			else if ((f->spe == 'o' || f->spe == 'O') &&
-				f->fla[0] <= ft_strlen(f->arg))
-				ft_buf('0', f);
+				f->fla[0] <= pf_ft_strlen(f->arg))
+				pf_ft_buf('0', f);
 			else if ((f->spe == 'o' || f->spe == 'O') && f->fla[0] == -1)
-				ft_buf('0', f);
+				pf_ft_buf('0', f);
 		}
 	}
 }
@@ -62,22 +62,22 @@ void	ft_sharp(t_flag *f)
 /*
 **					space ou + : d / D / i && #
 ** 		Ajoute un espace si flag ' ' OU un signe +/- si flag '+'
-** 		appelle la fonction ft_sharp
+** 		appelle la fonction pf_ft_sharp
 */
 
-void	ft_space_plus_sharp(t_flag *f)
+void	pf_ft_space_plus_sharp(t_flag *f)
 {
 	if (f->fla[5] == 1 || f->fla[6] == 1)
 	{
 		if (f->spe == 'd' || f->spe == 'D' || f->spe == 'i')
 		{
 			if (f->fla[6] == 1 && f->fla[5] == 0 && f->sign != '-')
-				ft_buf(' ', f);
-			if (f->fla[5] == 1 && ft_isdigit(f->arg[0]) && f->sign == '+')
-				ft_buf('+', f);
+				pf_ft_buf(' ', f);
+			if (f->fla[5] == 1 && pf_ft_isdigit(f->arg[0]) && f->sign == '+')
+				pf_ft_buf('+', f);
 		}
 	}
 	if (f->sign == '-')
-		ft_buf('-', f);
-	ft_sharp(f);
+		pf_ft_buf('-', f);
+	pf_ft_sharp(f);
 }

@@ -6,7 +6,7 @@
 #    By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/20 11:33:31 by tvisenti          #+#    #+#              #
-#    Updated: 2016/05/14 10:48:54 by tvisenti         ###   ########.fr        #
+#    Updated: 2016/06/08 10:42:54 by tvisenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,10 @@ all: $(NAME)
 $(NAME): $(OBJ) $(OBJLIB)
 	@ar rc $(NAME) $(OBJ) $(OBJLIB)
 	@ranlib $(NAME)
+	@echo "__, ___      __, __, _ _, _ ___ __,"
+	@echo "|_   |       |_) |_) | |\ |  |  |_ "
+	@echo "|    |       |   | \ | | \|  |  |  "
+	@echo "~    ~  ~~~~ ~   ~ ~ ~ ~  ~  ~  ~  "
 	@echo "\033[1;34mft_printf\t\033[1;33mCompilation\t\033[0;32m[OK]\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
@@ -80,7 +84,7 @@ $(OBJLIB_PATH)/%.o: $(LIB_PATH)/%.c
 	@$(CC) -o $@ -c $<
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJLIB)
 	@echo "\033[1;34mft_printf\t\033[1;33mCleaning obj\t\033[0;32m[OK]\033[0m"
 
 fclean: clean

@@ -6,11 +6,13 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 15:15:07 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/14 11:49:20 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:36:01 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t		ft_strlen(const char *str)
+#include "../inc/ft_printf.h"
+
+size_t		pf_ft_strlen(const char *str)
 {
 	int		i;
 

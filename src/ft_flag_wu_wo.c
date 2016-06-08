@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 12:45:04 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 19:31:18 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:33:13 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **		'U' / 'O' : recupere et cast l'arg
 */
 
-char		*ft_modifier_wu_wo(t_flag *f, va_list *ap)
+char		*pf_ft_modifier_wu_wo(t_flag *f, va_list *ap)
 {
 	intmax_t	data;
 
@@ -35,9 +35,9 @@ char		*ft_modifier_wu_wo(t_flag *f, va_list *ap)
 	else
 		data = (uintmax_t)va_arg(*ap, unsigned long);
 	if (f->spe == 'U')
-		return (ft_itoa_base(data, 10));
+		return (pf_ft_itoa_base(data, 10));
 	if (f->spe == 'O')
-		return (ft_itoa_base(data, 8));
+		return (pf_ft_itoa_base(data, 8));
 	return (NULL);
 }
 
@@ -45,13 +45,13 @@ char		*ft_modifier_wu_wo(t_flag *f, va_list *ap)
 **		'U' : Applique le mask, et traite en numb
 */
 
-int			ft_handler_wu(t_flag *f, va_list *ap)
+int			pf_ft_handler_wu(t_flag *f, va_list *ap)
 {
 	static int	mask_wu[13] = {0, 0, 2, 1, 1, 1, 1, 2, 2, 1, 2, 1, 1};
 
-	ft_apply_mask(f, mask_wu);
-	f->arg = ft_modifier_wu_wo(f, ap);
-	ft_handler_numb(f);
+	pf_ft_apply_mask(f, mask_wu);
+	f->arg = pf_ft_modifier_wu_wo(f, ap);
+	pf_ft_handler_numb(f);
 	return (0);
 }
 
@@ -59,14 +59,14 @@ int			ft_handler_wu(t_flag *f, va_list *ap)
 **		'O' : Applique le mask, et traite en numb
 */
 
-int			ft_handler_wo(t_flag *f, va_list *ap)
+int			pf_ft_handler_wo(t_flag *f, va_list *ap)
 {
 	static int	mask_wo[13] = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
-	ft_apply_mask(f, mask_wo);
-	f->arg = ft_modifier_wu_wo(f, ap);
+	pf_ft_apply_mask(f, mask_wo);
+	f->arg = pf_ft_modifier_wu_wo(f, ap);
 	if (f->fla[0] == -1 && f->arg[0] != '0' && f->fla[2] == 1)
 		f->fla[0] = 0;
-	ft_handler_numb(f);
+	pf_ft_handler_numb(f);
 	return (0);
 }

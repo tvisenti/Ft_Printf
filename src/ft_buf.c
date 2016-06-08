@@ -6,7 +6,7 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 15:36:02 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 18:34:51 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:33:41 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** 				Initialise g_buf avec des \0
 */
 
-void				ft_bufset(void)
+void				pf_ft_bufset(void)
 {
 	int				n;
 
@@ -33,17 +33,17 @@ void				ft_bufset(void)
 ** 				Affiche g_buf jusqu'à g_i
 */
 
-void				ft_display(t_flag *f)
+void				pf_ft_display(t_flag *f)
 {
 	f->ret += write(1, g_buf, g_i);
-	ft_bufset();
+	pf_ft_bufset();
 }
 
 /*
 ** 				Affiche (null)
 */
 
-void				ft_buf_null(t_flag *f)
+void				pf_ft_buf_null(t_flag *f)
 {
 	static char		str[6] = "(null)";
 	int				i;
@@ -51,7 +51,7 @@ void				ft_buf_null(t_flag *f)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		ft_buf(str[i], f);
+		pf_ft_buf(str[i], f);
 		i++;
 	}
 }
@@ -60,10 +60,10 @@ void				ft_buf_null(t_flag *f)
 ** 			Ajoute dans g_buf jusqu'à 4095 char et affiche si full
 */
 
-void				ft_buf(char c, t_flag *f)
+void				pf_ft_buf(char c, t_flag *f)
 {
 	g_buf[g_i] = c;
 	g_i++;
 	if (g_i == 4096)
-		ft_display(f);
+		pf_ft_display(f);
 }

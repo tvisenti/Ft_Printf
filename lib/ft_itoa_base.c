@@ -6,14 +6,13 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/29 17:24:28 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:39:11 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:34:48 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "../inc/ft_printf.h"
 
-uintmax_t		ft_sign(t_flag *f, intmax_t nbr)
+uintmax_t		pf_ft_sign(t_flag *f, intmax_t nbr)
 {
 	f->sign = '+';
 	if (nbr < 0)
@@ -24,7 +23,7 @@ uintmax_t		ft_sign(t_flag *f, intmax_t nbr)
 	return ((uintmax_t)nbr);
 }
 
-char			*ft_itoa_base(uintmax_t nbr, int base)
+char			*pf_ft_itoa_base(uintmax_t nbr, int base)
 {
 	static char	convert[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8',
 	'9', 'A', 'B', 'C', 'D', 'E', 'F'};

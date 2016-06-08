@@ -6,14 +6,13 @@
 /*   By: tvisenti <tvisenti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 17:27:36 by tvisenti          #+#    #+#             */
-/*   Updated: 2016/05/13 17:39:04 by tvisenti         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:34:51 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "../inc/ft_printf.h"
 
-long	ft_atoi(const char *str)
+long	pf_ft_atoi(const char *str)
 {
 	long	sign;
 	long	nbr;
@@ -29,7 +28,7 @@ long	ft_atoi(const char *str)
 		str++;
 	}
 	nbr = 0;
-	while (ft_isdigit((int)*str))
+	while (pf_ft_isdigit((int)*str))
 	{
 		nbr = nbr * 10 + *str - '0';
 		str++;
